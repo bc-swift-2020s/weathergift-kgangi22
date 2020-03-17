@@ -23,21 +23,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YcH-ub-UDu">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="LwN-Ak-G7k"/>
-                                </constraints>
-                                <items>
-                                    <barButtonItem title="About" id="aty-JU-SWm"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="MzU-Kp-x02"/>
-                                    <barButtonItem image="list.bullet" catalog="system" id="tqH-kp-XKc">
-                                        <connections>
-                                            <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="jLv-qq-qhS"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="063-8A-dbn">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="225"/>
                                 <subviews>
@@ -80,6 +65,33 @@
                                     <constraint firstAttribute="height" constant="225" id="6eA-0B-hOP"/>
                                 </constraints>
                             </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YcH-ub-UDu">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="LwN-Ak-G7k"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="About" id="aty-JU-SWm"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="7pu-za-KpI"/>
+                                    <barButtonItem style="plain" id="NVZ-SV-dYt">
+                                        <pageControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="RyX-mg-Swu">
+                                            <rect key="frame" x="73" y="4" width="189" height="37"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="pageIndicatorTintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="currentPageIndicatorTintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <connections>
+                                                <action selector="pageControlTapped:" destination="av1-TP-4pB" eventType="valueChanged" id="lrx-mA-xYc"/>
+                                            </connections>
+                                        </pageControl>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="MzU-Kp-x02"/>
+                                    <barButtonItem image="list.bullet" catalog="system" id="tqH-kp-XKc">
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="jLv-qq-qhS"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -95,6 +107,7 @@
                     <connections>
                         <outlet property="dateLabel" destination="WXp-VA-QKZ" id="5Nw-zt-jK1"/>
                         <outlet property="imageView" destination="E66-9V-XiD" id="HW8-QB-D43"/>
+                        <outlet property="pageControl" destination="RyX-mg-Swu" id="J2a-oD-0W4"/>
                         <outlet property="placeLabel" destination="M2D-kf-T5n" id="Zum-Dm-qLn"/>
                         <outlet property="summaryLabel" destination="fd9-7H-ozG" id="jZW-EW-nCV"/>
                         <outlet property="temperatureLabel" destination="EOC-a8-w4w" id="mG4-bH-VnH"/>
