@@ -20,35 +20,4 @@ class WeatherLocation: Codable {
         self.longitude = longitude
     }
     
-    func getData(){
-        let coordinates = "\(latitude),\(longitude)"
-        let urlString = "\(APIurls.darkSkyURL)\(APIkeys.darkSkyKey)/\(coordinates)"
-    
-        print("❤️❤️❤️❤️❤️❤️ We are accessing \(urlString)")
-        guard let url = URL(string: urlString) else{
-            print("ERROR: Could not create URL with \(urlString)")
-            return
-        }
-        let session = URLSession.shared
-        let task = session.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                print("ERROR: \(error.localizedDescription)")
-            }
-            do{
-                let json = try JSONSerialization.jsonObject(with: data!, options: [])
-                print("\(json)")
-                
-            } catch{
-                print("JSON Error: \(error.localizedDescription)")
-                
-            }
-        }
-        
-        task.resume()
-        
-        
-        
-        
-        
-    }
 }
