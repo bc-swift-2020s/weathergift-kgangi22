@@ -18,6 +18,7 @@ class WeatherDetail: WeatherLocation{
     
     struct Currently: Codable {
         var temperature: Double
+        var time: TimeInterval
     }
     
     struct Daily: Codable{
@@ -27,9 +28,11 @@ class WeatherDetail: WeatherLocation{
     
     
     var timeZone = ""
+    var currentTime = 0.0
     var temperature = 0
     var summary = ""
     var dailyIcon = ""
+    
     
     func getData(completed: @escaping () -> () ){
         let coordinates = "\(latitude),\(longitude)"
@@ -52,6 +55,7 @@ class WeatherDetail: WeatherLocation{
                 self.temperature = Int(result.currently.temperature.rounded())
                 self.summary = result.daily.summary
                 self.dailyIcon = result.daily.icon
+                self.currentTime = result.currently.time
                 
                 
             } catch{
