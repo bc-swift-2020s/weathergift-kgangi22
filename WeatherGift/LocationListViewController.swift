@@ -123,7 +123,5 @@ extension LocationListViewController: GMSAutocompleteViewControllerDelegate {
     dismiss(animated: true, completion: nil)
   }
 
-
-
 }
 

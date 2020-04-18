@@ -9,14 +9,12 @@
 import Foundation
 
 private let dateFormatter: DateFormatter = {
-    print("📅📅📅 I JUST CREATED A DATE FORMATTER in WeatherDetail.swift")
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "EEEE"
     return dateFormatter
 }()
 
 private let hourlyFormatter: DateFormatter = {
-    print(" I JUST CREATED AN HOURLY FORMATTER in WeatherDetail.swift")
     let hourlyFormatter = DateFormatter()
     hourlyFormatter.dateFormat = "ha"
     return hourlyFormatter
@@ -86,6 +84,7 @@ class WeatherDetail: WeatherLocation{
     var dailyIcon = ""
     
     var dailyWeatherData: [DailyWeather] = []
+
     var hourlyWeatherData:[HourlyWeather] = []
     
     
@@ -95,7 +94,6 @@ class WeatherDetail: WeatherLocation{
         let coordinates = "\(latitude),\(longitude)"
         let urlString = "\(APIurls.darkSkyURL)\(APIkeys.darkSkyKey)/\(coordinates)"
     
-        print("❤️❤️❤️❤️❤️❤️ We are accessing \(urlString)")
         guard let url = URL(string: urlString) else{
             print("ERROR: Could not create URL with \(urlString)")
             completed()
@@ -123,7 +121,6 @@ class WeatherDetail: WeatherLocation{
                     let dailyLow = Int(result.daily.data[index].temperatureLow.rounded())
                     let dailyWeather = DailyWeather(dailyIcon: dailyIcon, dailyWeekday: dailyWeekday, dailySummary: dailySummary, dailyHigh: dailyHigh, dailyLow: dailyLow)
                     self.dailyWeatherData.append(dailyWeather)
-                    print("Day: \(dailyWeather.dailyWeekday) High: \(dailyWeather.dailyHigh) Low: \(dailyWeather.dailyLow)")
                 }
                 let lastHour = min(result.hourly.data.count, 24)
                 
@@ -136,7 +133,6 @@ class WeatherDetail: WeatherLocation{
                     let precipProbability = Int((result.hourly.data[index].precipProbability*100).rounded())
                     let hourlyWeather = HourlyWeather(hour: hour, hourlyIcon: hourlyIcon, hourlyTemperature: temperature, hourlyPrecipProbability: precipProbability)
                     self.hourlyWeatherData.append(hourlyWeather)
-                    print("Hour: \(hourlyWeather.hour), Icon: \(hourlyWeather.hourlyIcon), Temperature: \(hourlyWeather.hourlyTemperature), PrecipProbability: \(hourlyWeather.hourlyPrecipProbability)")
     
                 }
                 
