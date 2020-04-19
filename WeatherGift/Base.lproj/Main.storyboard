@@ -72,11 +72,15 @@
                                     <constraint firstAttribute="height" constant="44" id="LwN-Ak-G7k"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="About" id="aty-JU-SWm"/>
+                                    <barButtonItem title="About" id="aty-JU-SWm">
+                                        <connections>
+                                            <segue destination="u5Z-xG-lTB" kind="presentation" id="4ii-m1-6y8"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="7pu-za-KpI"/>
                                     <barButtonItem style="plain" id="NVZ-SV-dYt">
                                         <pageControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="RyX-mg-Swu">
-                                            <rect key="frame" x="73" y="4" width="190" height="37"/>
+                                            <rect key="frame" x="73.5" y="3.5" width="190" height="37"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="pageIndicatorTintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="currentPageIndicatorTintColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -88,7 +92,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="MzU-Kp-x02"/>
                                     <barButtonItem image="list.bullet" catalog="system" id="tqH-kp-XKc">
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="jLv-qq-qhS"/>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" identifier="ShowList" modalPresentationStyle="fullScreen" id="jLv-qq-qhS"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -246,6 +250,74 @@
             </objects>
             <point key="canvasLocation" x="-864.375" y="126.7605633802817"/>
         </scene>
+        <!--About View Controller-->
+        <scene sceneID="gFT-m5-XX4">
+            <objects>
+                <viewController id="u5Z-xG-lTB" customClass="AboutViewController" customModule="WeatherGift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F4f-39-Nna">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bo7-q5-nmw">
+                                <rect key="frame" x="0.0" y="504" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem title="Done" id="0Hw-oc-tDJ">
+                                        <connections>
+                                            <action selector="doneButtonPressed:" destination="u5Z-xG-lTB" id="w90-6W-Rsl"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eNe-b8-xZR">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WeatherGift" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgL-9Z-PXc">
+                                        <rect key="frame" x="26" y="8" width="268" height="88"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="64"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="snow" translatesAutoresizingMaskIntoConstraints="NO" id="gsk-82-Qow">
+                                        <rect key="frame" x="8" y="104" width="304" height="210"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="powered_by_darksky" translatesAutoresizingMaskIntoConstraints="NO" id="aiJ-4V-L7q">
+                                        <rect key="frame" x="19" y="401" width="131" height="84"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Made with Love" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAl-Gh-RJI">
+                                        <rect key="frame" x="8" y="322" width="304" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="powered_by_google_on_white" translatesAutoresizingMaskIntoConstraints="NO" id="XID-D2-9H9">
+                                        <rect key="frame" x="158" y="381" width="143" height="104"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Bo7-q5-nmw" firstAttribute="bottom" secondItem="2Px-TF-mDv" secondAttribute="bottom" id="0jp-OK-wg6"/>
+                            <constraint firstItem="eNe-b8-xZR" firstAttribute="leading" secondItem="2Px-TF-mDv" secondAttribute="leading" id="8Xe-OX-mi2"/>
+                            <constraint firstItem="eNe-b8-xZR" firstAttribute="top" secondItem="2Px-TF-mDv" secondAttribute="top" id="Cwt-Dn-iEi"/>
+                            <constraint firstItem="Bo7-q5-nmw" firstAttribute="trailing" secondItem="2Px-TF-mDv" secondAttribute="trailing" id="i75-7k-dWF"/>
+                            <constraint firstItem="Bo7-q5-nmw" firstAttribute="leading" secondItem="2Px-TF-mDv" secondAttribute="leading" id="jh9-hi-wrg"/>
+                            <constraint firstItem="2Px-TF-mDv" firstAttribute="trailing" secondItem="eNe-b8-xZR" secondAttribute="trailing" id="pvQ-Tu-yHE"/>
+                            <constraint firstItem="Bo7-q5-nmw" firstAttribute="top" secondItem="eNe-b8-xZR" secondAttribute="bottom" id="yIp-MC-2Bk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2Px-TF-mDv"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rY7-CJ-pxM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-845.625" y="1040.4929577464789"/>
+        </scene>
         <!--Location List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -328,6 +400,9 @@
         <image name="cloud" catalog="system" width="64" height="42"/>
         <image name="fog" width="225" height="225"/>
         <image name="list.bullet" catalog="system" width="64" height="44"/>
+        <image name="powered_by_darksky" width="356" height="142"/>
+        <image name="powered_by_google_on_white" width="144" height="18"/>
         <image name="raindrop" width="34" height="50"/>
+        <image name="snow" width="225" height="225"/>
     </resources>
 </document>

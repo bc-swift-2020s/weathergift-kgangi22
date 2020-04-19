@@ -27,7 +27,7 @@ class PageViewController: UIPageViewController {
             else{
                 print("Warning: Could not load weatherLocations data. This would always be the case the first time the app is installed")
                 //TODO: Get User Location for First Element
-                weatherLocations.append(WeatherLocation(name: "Current Location", latitude: 0.0, longitude: 0.0))
+                weatherLocations.append(WeatherLocation(name: "", latitude: 0.0, longitude: 0.0))
                 return
         }
         let decoder = JSONDecoder()
